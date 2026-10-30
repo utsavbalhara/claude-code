@@ -41,8 +41,3 @@ y=one_pass(y,1024,128,1.3,0.8,10)
 y=one_pass(y,4096,512,1.0,0.8,10)
 y=one_pass(y,2048,256,1.2,0.8,8)
 w.write(sys.argv[2],sr,(np.clip(y,-1,1)*32767).astype(np.int16))
-f2,t2,Z2=s.stft(y,sr,nperseg=4096,noverlap=3072); M2=np.abs(Z2); bb=(f2>780)&(f2<1400)
-fx,tx,Zx=s.stft(x,sr,nperseg=4096,noverlap=3072); Mx=np.abs(Zx)
-for a in [5,30,60,90,150]:
-    idx=(t2>=a)&(t2<a+5); m=M2[bb][:,idx]
-    print(a,"s prom:",round(20*np.log10(np.median(m.max(0)/np.median(m,0))),1)," band reduction:",round(10*np.log10((Mx[bb][:,idx]**2).sum()/(m**2).sum()),1)," total reduction:",round(10*np.log10((Mx[:,idx]**2).sum()/(M2[:,idx]**2).sum()),1))

@@ -10,4 +10,4 @@ Removes a sweeping siren from `input/Recording_14.m4a` while keeping door sounds
 - `denoise.py`: gentle hiss reduction using the quietest 2 seconds as the noise profile.
 - `process.sh`: runs both, then high-pass filter, presence EQ, dynamic normalisation and a limiter.
 
-Outputs: `*_siren_removed_enhanced.m4a` (main) and `*_siren_removed_only.m4a` (original levels).
+Outputs: `*_siren_removed_voice_boost.m4a` (strongest: heavier hiss reduction, speech-range EQ, compression), `*_siren_removed_enhanced.m4a` (moderate) and `*_siren_removed_only.m4a` (original levels).
